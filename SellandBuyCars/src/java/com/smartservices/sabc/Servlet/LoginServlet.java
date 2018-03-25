@@ -15,13 +15,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Prince
+ * @author Dell
  */
-@WebServlet(name = "RegistrationServlet", urlPatterns = {"/register"})
-public class RegistrationServlet extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = {"/login"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,33 +38,23 @@ public class RegistrationServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int custid;
-            String fname;
-            String lname;
-            int mob;
-            String email;
-            String address;
-            String username;
-            String password;
-            custid = Integer.parseInt(request.getParameter("custid"));
-            fname = request.getParameter("fname");
-            lname = request.getParameter("lname");
-            address=request.getParameter("addr");
-            mob = Integer.parseInt(request.getParameter("mob"));
-            email = request.getParameter("email");
-            username = request.getParameter("username");
-            password = request.getParameter("password");
+            String customername,email;
+           customername = request.getParameter("customername");
+           email = request.getParameter("email");
             CustomerDAO customerDAO = new CustomerDAOImpl();
-            int count = customerDAO.addCustomer(new Custinfo(custid,fname,lname,addr,mob,email,username,password));
-             RequestDispatcher rd = null;
-            if(count>0){
-               rd = request.getRequestDispatcher("homepage.jsp");
+            RequestDispatcher rd = null;
+            if(customerDAO.isUserValid(customername, email)){
+                HttpSession session = request.getSession();
+                session.setAttribute("loginid", customername);
+                rd = request.getRequestDispatcher("homepage.jsp");
             }
             else{
-                rd = request.getRequestDispatcher("regitrationIndex.jsp");
+                rd = request.getRequestDispatcher("login.jsp");
             }
-            rd.forward(request,response);
-        }
+            rd.forward(request, response);
+            
+            
+            
         }
     }
 
@@ -107,22 +98,3 @@ public class RegistrationServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
