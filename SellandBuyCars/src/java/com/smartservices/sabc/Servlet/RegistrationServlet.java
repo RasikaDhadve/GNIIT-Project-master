@@ -60,7 +60,7 @@ public class RegistrationServlet extends HttpServlet {
                rd = request.getRequestDispatcher("homepage.jsp");
             }
             else{
-                rd = request.getRequestDispatcher("regitrationIndex.jsp");
+                rd = request.getRequestDispatcher("RegitrationIndex.jsp");
             }
             rd.forward(request,response);
         }
