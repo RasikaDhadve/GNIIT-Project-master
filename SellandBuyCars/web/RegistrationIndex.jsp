@@ -12,37 +12,38 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration Form</title>
     </head>
-    <body>
+    <body align="center">
         <form method="post" action="registration.do">
             <b>Id</b>
-            <input type="text" name="id" value="autoincrement" size="5">
+            <input type="text" name="id"  size="5" placeholder="Auto increment">
             <br>
             <br>
             <b>First Name</b>
-            <input type="text" name="fname" value="" size="10">
+            <input type="text" name="fname" placeholder="Enter  First Name" size="10">
             <br>
             <br>
             <b>Last Name</b>
-            <input type="text" name="lname" value="" size="10">
+            <input type="text" name="lname" placeholder="Enter Last Name" size="10">
             <br>
             <br>
              <b>Address</b>
-            <input type="text" name="address" value="" size="25">
+            <input type="text" name="address" placeholder="Enter Address" size="25">
             <br>
             <br>
             <b>Phone No</b>
-            <input type="text" name="phone" value="" size="10">
+            <input type="text" name="phone" placeholder="Enter Phone Number" size="10">
+            <br>
             <br>
             <b>Email</b>
-            <input type="text" name="email" value="" size="15">
+            <input type="text" name="email" placeholder="Enter Email" size="15">
             <br>
             <br>
             <b>Username</b>
-            <input type="text" name="username" value="" size="10">
+            <input type="text" name="username" placeholder="Enter Username" size="10">
             <br>
             <br>
             <b>Password</b>
-            <input type="password" name="password" value="" size="10">
+            <input type="password" name="password" placeholder="Enter Password" size="10">
             <br>
             <br>
             <input type="submit" value="register">
