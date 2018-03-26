@@ -19,6 +19,8 @@ public interface CustomerDAO {
     List<Custinfo> getAllCustinfo();
     Custinfo getCustomerByID(int custId);
     int updateCustomer(int custId,Custinfo Custinfo);
+
+    public boolean isUserValid(String customername, String email);
   
     
 
